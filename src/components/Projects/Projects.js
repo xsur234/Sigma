@@ -4,25 +4,25 @@ import { BlogCard, CardInfo, ExternalLinks, GridContainer, HeaderThree, Hr, Tag,
 import { Section, SectionDivider, SectionTitle } from '../../styles/GlobalComponents';
 import { projects } from '../../constants/constants';
 
-const Projects = () => (
+const Projects = (props) => (
   <Section nopadding id="projects">
     <SectionDivider />
     <SectionTitle main>Projects</SectionTitle>
     <GridContainer>
       {projects.map((p, i) => {
         return (
-          <BlogCard key={i}>
+          <BlogCard  style={{background:props.mode==="Dark"?"#035782":"black"}} key={i}>
           <Img src={p.image} />
             <TitleContent>
-              <HeaderThree title>{p.title}</HeaderThree>
+              <HeaderThree style={{color:props.mode==="Dark"?"white":"#9cc9e3"}} title>{p.title}</HeaderThree>
               <Hr />
             </TitleContent>
-            <CardInfo className="card-info">{p.description}</CardInfo>
+            <CardInfo  style={{color:props.mode==="Dark"?"white":"#ffffff"}} title  className="card-info">{p.description}</CardInfo>
             <div>
-              <TitleContent>Stack</TitleContent>
-              <TagList>
+              <TitleContent style={{color:props.mode==="Dark"?"#ffffff":"#ffffff"}} >Stack</TitleContent>
+              <TagList >
                 {p.tags.map((t, i) => {
-                  return <Tag key={i}>{t}</Tag>;
+                  return <Tag style={{color:props.mode==="Dark"?"white":"white"}} key={i}>{t}</Tag>;
                 })}
               </TagList>
             </div>

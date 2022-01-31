@@ -5,11 +5,13 @@ import { DiCssdeck } from 'react-icons/di';
 
 import { Container, Div1, Div2, Div3, NavLink, SocialIcons } from './HeaderStyles';
 
-const Header = () =>  (
+
+
+const Header = (props) =>  (
   <Container>
     <Div1>
       <Link href="/">
-        <a style={{ display: 'flex', alignItems: 'center', color:"white" }}>
+        <a style={{ display: 'flex', alignItems: 'center', color:props.mode==="Light"?"white":"white" }}>
           <DiCssdeck size="3rem" /> <span>SIGΣA_DEV</span>
         </a>
       </Link>
@@ -17,33 +19,37 @@ const Header = () =>  (
     <Div2>
       <li>
         <Link href="#projects">
-          <NavLink>Projects</NavLink>
+          <NavLink style={{color: props.mode==="Light"?"rgba(255, 255, 255, 0.75)":"white"}}>Projects</NavLink>
         </Link>
       </li>
       <li>
         <Link href="#tech">
-          <NavLink>Technologies</NavLink>
+          <NavLink style={{color: props.mode==="Light"?"rgba(255, 255, 255, 0.75)":"white"}}>Technologies</NavLink>
         </Link>
       </li>        
       <li>
         <Link href="#about">
-          <NavLink>About</NavLink>
+          <NavLink style={{color: props.mode==="Light"?"rgba(255, 255, 255, 0.75)":"white"}}>About</NavLink>
         </Link>
       </li>        
       <li>
         <Link href="#blog">
-          <NavLink>Blog</NavLink>
+          <NavLink style={{color: props.mode==="Light"?"rgba(255, 255, 255, 0.75)":"white"}}>Blog</NavLink>
         </Link>
       </li>        
     </Div2>
       <Div3>
-        <SocialIcons href="https://github.com/xsur234">
-          <AiFillGithub size="3rem" />
+      <SocialIcons style={{color: props.mode==="Light"?"white":"white"}} onClick={props.toggleMode}>
+        {props.mode}
+      </SocialIcons>
+        <SocialIcons style={{color: props.mode==="Light"?"white":"white"}} href="https://github.com/xsur234">
+          <AiFillGithub size="3rem" /> 
         </SocialIcons>
-        <SocialIcons href="https://www.linkedin.com/feed/">
+
+        <SocialIcons  style={{color: props.mode==="Light"?"white":"white"}}  href="https://www.linkedin.com/feed/">
           <AiFillLinkedin size="3rem" />
         </SocialIcons>
-        <SocialIcons href="https://www.instagram.com/accounts/login/">
+        <SocialIcons   style={{color: props.mode==="Light"?"white":"white"}} href="https://www.instagram.com/accounts/login/">
           <AiFillInstagram size="3rem"/>
         </SocialIcons>
       </Div3>
